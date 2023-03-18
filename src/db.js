@@ -8,11 +8,10 @@ export default {
 	},
 
 	async video(category_id) {
-		// return window.Parse.Cloud.run('get', {category_id})	
-		return {id: 'dQw4w9WgXcQ', views: 0}
+		return window.Parse.Cloud.run('get', {category_id})
 	},
 
 	rateVideo(id, rating) {
-		// window.Parse.Cloud.run('rate', {id, rating})
+		window.Parse.Cloud.run('rate', {id, rating})
 	}
 }
