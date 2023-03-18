@@ -1,0 +1,130 @@
+@import config
+
+#logo
+	display: flex
+	align-items: center
+	justify-content: center
+	position: absolute
+	left: 0
+	bottom: 0
+	padding: 2rem
+	width: 100%
+	font: 300 24px/1 'Montserrat Alternates'
+	.utopia
+		color: inherit
+		text-decoration: none
+	.title
+		color: #ea2027
+		font-weight: bold
+		font-size: 1em
+		margin-bottom: 0
+	.copyright
+		--bs-btn-line-height: 1
+		--bs-btn-border-radius: 18px
+		--bs-btn-font-size: 1em
+		--bs-btn-font-weight: bold
+
+		margin: 0 .5rem
+		text-align: center
+		padding: 5px 0
+		padding-right: (1em/12)
+		width: 36px
+		text-decoration: none
+
+#app
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	min-height: 100vh
+
+#start-btn
+	display: block
+	position: absolute
+	left: calc(50% - 48px)
+	top: calc(50% - 48px)
+	background: #ea2027
+	color: #fff
+	border-radius: 50%
+	outline: none
+	border: none
+	padding: 0
+	width: 96px
+	height: 96px
+	box-shadow: inset 0 0 4px 4px rgba(0, 0, 0, .2)
+	transition: transform .2s ease, box-shadow .2s ease, font-size .2s ease
+	&:not(:disabled):hover
+		transform: rotate(60deg)
+		box-shadow: inset 0 0 8px 6px rgba(0, 0, 0, .2)
+		font-size: 1.1rem
+	&:disabled
+		background-color: #eee
+		animation: right-round 1s linear infinite
+		svg path
+			fill: #000
+
+body.dark #theme-toggle-btn
+	.dark-icon
+		display: initial
+	.light-icon
+		display: none
+
+#theme-toggle-btn
+	position: absolute
+	top: 0
+	left: calc(50% - 1.5rem)
+	border: none
+	background: none
+	color: var(--bs-body-color)
+	transform: rotate(.5turn)
+	font-size: 3rem
+	line-height: 0
+	.dark-icon
+		display: none
+	.low-light-icon
+		display: none
+	&:hover
+		.dark-icon
+			display: none
+		.light-icon
+			display: none
+		.low-light-icon
+			display: initial
+
+.modal-overlay
+	position: absolute
+	top: 0
+	left: 0
+	display: flex
+	width: 100vw
+	min-height: 100vh
+	background: rgba(0,0,0,.4)
+	justify-content: center
+	align-items: center
+	line-height: 1.5
+	z-index: 100
+	.modal
+		position: relative
+		width: 640px
+		background: var(--bs-body-bg)
+
+@media (max-width: 640px)
+	.modal-overlay
+		.modal
+			height: 100vh
+
+@media (min-width: 992px)
+	#logo
+		justify-content: start
+
+@keyframes right-round
+	0%
+		transform: rotate(60deg)
+	100%
+		transform: rotate(180deg)
+
+.fade
+	&-enter-active, &-leave-active
+		transition: opacity .2s ease
+	&-enter-from, &-leave-to
+		opacity: 0

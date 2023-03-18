@@ -1,0 +1,72 @@
+// IMPORT SECTION
+
+@import 'bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'bootstrap/scss/bootstrap-grid.scss'
+@import 'bootstrap/scss/buttons.scss'
+
+// FONTS LOAD SECTION
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;600&family=Open+Sans:wght@400;600&display=swap')
+
+// USER VARIABLES SECTION
+
+:root
+	--btn-size: 48px
+	--gutter: 24px
+	--border-color: rgba(0, 0, 0, 0.1)
+	
+	--bs-body-font-family: 'Open Sans', sans-serif
+	--bs-body-font-size: 16px
+	--bs-body-font-weight: 400
+	--bs-body-line-height: 1
+	--bs-body-color: #333333
+	--bs-body-bg: #f9f9f9
+
+.row
+	--bs-gutter-x: var(--gutter)
+	
+
+// GENERAL DOCUMENT STYLES
+
+*
+	outline: none
+	padding: 0
+	margin: 0
+
+[hidden], hidden
+	display: none
+
+::placeholder
+	color: #666
+
+::selection
+	// background-color: #74b9ff
+	// color: $text-color-dark
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+.btn-outline-default
+	@extend .btn-outline-dark
+
+.btn-default
+	@extend .btn-dark
+
+body
+	min-width: 360px
+	position: relative
+	overflow-x: hidden
+	overflow: hidden
+	&.dark
+		--border-color: rgba(255, 255, 255, 0.1)
+		--bs-body-color: #f9f9f9
+		--bs-body-bg: #0F0F0F
+		.btn-outline-default
+			@extend .btn-outline-light
+
+		.btn-default
+			@extend .btn-light
